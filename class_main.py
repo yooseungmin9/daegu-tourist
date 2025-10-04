@@ -1,44 +1,31 @@
 import random
-import json
-from jpn_word_list import jpn_word_list
+from mountains import apsan, palgongsan, biseulsan
 
-class Smart_vocab:
-    def __init__(self, word_list):
-        self.word_list = word_list
-        self.current_word = None
-        self.is_answered = False
-        self.score = 0
-        self.total_questions = 0
-        self.current_index = 0 
-        self.total_words = len(word_list)
-    
-    def start_learn(self):
-        print("단어 학습시작")
-        return True
-    
-    def next_word(self):
-        self.current_word = random.choice(self.word_list)
-        self.is_answered = False
-        return self.current_word
-    
-    def present_question(self, word_list):
-        print(f"\n단어 {word_list['word']}")
-        choices = word_list["meanings"].copy()
-        random.shuffle(choices)
 
-        for i, choice in enumerate(choices, 1):
-            print(f"{i}. {choice}")
-        
-        return choices
-    
-    def check_answer(self, user_choice, choices):
-        self.total_words = len(self.word_list)
+class TouristInfo:
+    def __init__(self, places):
+        self.places = places
 
-        if choices[user_choice - 1] == self.current_word["meanings"][0]: # 정답 확인
-            print(f"정답입니다. '{self.current_word['word']}'의 뜻은 '{self.current_word['correct_meaning']}'입니다.")
-            self.score += 1
-            self.is_answered = True
-            return True
-        else:
-            print("틀렸습니다.")
-            return False
+    def show_all_places(self):
+        for place in self.places:
+            print(f"산 명칭: {place['name']}")
+            print(f"한자: {place.get('hanja', '정보 없음')}")
+            print(f"위치: {place.get('locate', '정보 없음')}")
+            print("-" * 30)
+
+    def show_random_place(self):
+        place = random.choice(self.places)
+        print(f"산 명칭: {place['name']}")
+        print(f"한자: {place.get('hanja', '정보 없음')}")
+        print(f"위치: {place.get('locate', '정보 없음')}")
+
+
+# 예제 사용법
+daegu_tourist_spots = apsan + palgonsan + biseulsan
+tour = TouristInfo(daegu_tourist_spots)
+
+print("대구의 관광지 전체 보기:")
+tour.show_all_places()
+
+print("\n무작위 관광지 정보:")
+tour.show_random_place()
