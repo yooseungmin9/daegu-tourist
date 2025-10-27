@@ -1,5 +1,5 @@
 # smart_vocab_app (Use Streamlit)
 
-This is a smart vocabulary learning app. (More features coming soon)
+This is a Daegu tourist app. (Update Soon.)
 
-Link : https://smartvocab.streamlit.app/
+Link : [https://smartvocab.streamlit.app/](https://daegutourist.streamlit.app/)
