@@ -1,4 +1,4 @@
-# smart_vocab_app (Use Streamlit)
+# daegu_tourist_app (Use Streamlit)
 
 This is a Daegu tourist app. (Update Soon.)
 
